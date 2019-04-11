@@ -1,0 +1,24 @@
+steps:
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+      'run'
+      'arico/python36'
+      'tox'
+      '--'
+      '-x'
+      'main_test.py'
+      waitFor: ['python36']
+      id: unittest
+
+  name: 'gcr.io/cloud-builders/gcloud'
+  args:
+    'gcloud'
+    'functions'
+    'deploy'
+    'hello_get'
+    '--runtime'
+    'python37'
+    '--trigger-http'
+    '--region $CLOUDSDK_COMPUTE_ZONE'
+  env:
+    - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
