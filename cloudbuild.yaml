@@ -1,8 +1,6 @@
 steps:
-  name: 'gcr.io/cloud-builders/docker'
+  name: arico/python36
   args:
-      'run'
-      'arico/python36'
       'tox'
       '--'
       '-x'
