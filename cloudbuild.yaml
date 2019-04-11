@@ -3,5 +3,5 @@ steps:
     args: ['tox','--','-x','main_test.py']
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['gcloud','functions','deploy','hello_get','--runtime','python37','--trigger-http','--region','europe-west-1']
+    args: ['functions','deploy','hello_get','--runtime','python37','--trigger-http','--region','europe-west1']
     env: ['CLOUDSDK_COMPUTE_ZONE=europe-west1']
