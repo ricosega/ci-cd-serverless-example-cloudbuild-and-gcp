@@ -1,22 +1,20 @@
 steps:
-  name: arico/python36
+  name: 'arico/python36'
   args:
-      'tox'
-      '--'
-      '-x'
-      'main_test.py'
-      waitFor: ['python36']
-      id: unittest
+  - 'tox'
+  - '--'
+  - '-x'
+  - 'main_test.py'
 
   name: 'gcr.io/cloud-builders/gcloud'
   args:
-    'gcloud'
-    'functions'
-    'deploy'
-    'hello_get'
-    '--runtime'
-    'python37'
-    '--trigger-http'
-    '--region $CLOUDSDK_COMPUTE_ZONE'
+  - 'gcloud'
+  - 'functions'
+  - 'deploy'
+  - 'hello_get'
+  - '--runtime'
+  - 'python37'
+  - '--trigger-http'
+  - '--region $CLOUDSDK_COMPUTE_ZONE'
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
