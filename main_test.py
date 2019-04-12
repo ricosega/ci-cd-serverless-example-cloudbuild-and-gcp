@@ -27,7 +27,7 @@ def app():
 def test_hello_get(app):
     with app.test_request_context():
         res = main.hello_get(flask.request)
-        assert 'Hello World!' in res
+        assert 'Hello ackstorm!' in res
 
 
 def test_hello_http_no_args(app):
